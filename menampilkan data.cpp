@@ -9,135 +9,133 @@ typedef struct
     string gender;
     string nrp;
     int age;
-} Mahasiswa;
+} MAHASISWA;
 
-//2. INPUT DATA
-void inputMahasiswa(Mahasiswa mhs[], int &numStudents) 
+
+void inputMahasiswa(MAHASISWA mhsw[], int &numMhs) 
 {
-    if (numStudents < 10) {
-        cout << "Name: ";
-		cin >> mhs[numStudents].name;
-		cout << "Gender: ";
-		cin >> mhs[numStudents].gender;
+    if (numMhs < 10) {
+        cout << "Nama: ";
+		cin >> mhsw[numMhs].name;
+		cout << "Jenis Kelamin: ";
+		cin >> mhsw[numMhs].gender;
 		cout << "NRP: ";
-		cin >> mhs[numStudents].nrp;
-		cout << "Age: ";
-		cin >> mhs[numStudents].age;
+		cin >> mhsw[numMhs].nrp;
+		cout << "Umur: ";
+		cin >> mhsw[numMhs].age;
 		cout << endl;
-		numStudents++;
+		numMhs++;
     } else {
         cout << "Maximum number of students reached." << endl;
     }
 }
 
 //1. DISPLAY DATA
-void printMahasiswa(const Mahasiswa mhs[], int numStudents)     
+void printMahasiswa(const MAHASISWA mhsw[], int numMhs)     
 {
-    for (int i = 0; i < numStudents; i++) {
-        cout << "Student " << i+1 << ":" << endl;
-        cout << "Name: " << mhs[i].name << endl;
-        cout << "Gender: " << mhs[i].gender << endl;
-        cout << "NRP: " << mhs[i].nrp << endl;
-        cout << "Age: " << mhs[i].age << endl;
+    for (int i = 0; i < numMhs; i++) {
+        cout << "Mahasiswa " << i+1 << ":" << endl;
+        cout << "Nama: " << mhsw[i].name << endl;
+        cout << "Jenis Kelamin: " << mhsw[i].gender << endl;
+        cout << "NRP: " << mhsw[i].nrp << endl;
+        cout << "Umur: " << mhsw[i].age << endl;
         cout << endl;
     }
 }
 
-//3. DELETE DATA
-void deleteMahasiswa(Mahasiswa mhs[], int &numStudents)
+
+void deleteMahasiswa(MAHASISWA mhsw[], int &numMhs)
 {
-    if (numStudents > 0) {
+    if (numMhs > 0) {
         string nameToDelete;
-        cout << "Enter the name of the student to delete: ";
+        cout << "Masukkan nama mahasiswa yang ingin dihapus: ";
         cin.ignore();  // Clear the input buffer
         getline(cin, nameToDelete);
 
         bool found = false;
-        for (int i = 0; i < numStudents; i++) {
-            if (mhs[i].name == nameToDelete) {
+        for (int i = 0; i < numMhs; i++) {
+            if (mhsw[i].name == nameToDelete) {
                 // Shift all students after the deleted one to the left
-                for (int j = i; j < numStudents - 1; j++) {
-                    mhs[j] = mhs[j + 1];
+                for (int j = i; j < numMhs - 1; j++) {
+                    mhsw[j] = mhsw[j + 1];
                 }
 
-                numStudents--;
-                cout << "Student with name '" << nameToDelete << "' has been deleted." << endl;
+                numMhs--;
+                cout << "Mahasiswa dengan nama '" << nameToDelete << "' telah dihapus." << endl;
                 found = true;
                 break; // Exit the loop since we found the student
             }
         }
 
         if (!found) {
-            cout << "No student with the name '" << nameToDelete << "' found." << endl;
+            cout << "Mahasiswa dengan nama '" << nameToDelete << "' tidak ditemukan." << endl;
         }
     } else {
-        cout << "No students to delete." << endl;
+        cout << "Tidak ada mahasiswa untuk dihapus." << endl;
     }
 }
 
-//4. CHANGE DATA
 // Function to change data for a student by name
-void changeMahasiswa(Mahasiswa mhs[], int numStudents)
+void changeMahasiswa(MAHASISWA mhsw[], int numMhs)
 {
-    if (numStudents > 0) {
+    if (numMhs > 0) {
         string nameToChange;
-        cout << "Enter the name of the student to change: ";
+        cout << "Masukkan nama mahasiswa yang ingin diubah: ";
         cin.ignore();  // Clear the input buffer
         getline(cin, nameToChange);
 
         bool found = false;
-        for (int i = 0; i < numStudents; i++) {
-            if (mhs[i].name == nameToChange) {
-                cout << "Enter new data for student '" << nameToChange << "':" << endl;
-                cout << "Name: ";
-                getline(cin, mhs[i].name);
-                cout << "Gender: ";
-                cin >> mhs[i].gender;
+        for (int i = 0; i < numMhs; i++) {
+            if (mhsw[i].name == nameToChange) {
+                cout << "Masukkan data yang baru '" << nameToChange << "':" << endl;
+                cout << "Nama: ";
+                getline(cin, mhsw[i].name);
+                cout << "Jenis Kelamin: ";
+                cin >> mhsw[i].gender;
                 cout << "NRP: ";
-                cin >> mhs[i].nrp;
-                cout << "Age: ";
-                cin >> mhs[i].age;
-                cout << "Data for student '" << nameToChange << "' has been changed." << endl;
+                cin >> mhsw[i].nrp;
+                cout << "Umur: ";
+                cin >> mhsw[i].age;
+                cout << "Data untuk mahasiswa '" << nameToChange << "' telah diubah." << endl;
                 found = true;
                 break; // Exit the loop since we found the student
             }
         }
 
         if (!found) {
-            cout << "No student with the name '" << nameToChange << "' found." << endl;
+            cout << "Mahasiswa dengan nama '" << nameToChange << "' tidak ditemukan." << endl;
         }
     } else {
-        cout << "No students to change." << endl;
+        cout << "Tidak ada data yang dapat diubah." << endl;
     }
 }
 
-//5. SEARCH DATA
-void searchMahasiswa(const Mahasiswa mhs[], int numStudents)
+void searchMahasiswa(const MAHASISWA mhsw[], int numMhs)
 {
-    if (numStudents > 0) {
+    if (numMhs > 0) {
         string nameToSearch;
-        cout << "Enter the name of the student to search for: ";
+        cout << "Masukkan nama mahasiswa yang ingin dicara: ";
         cin.ignore();  // Clear the input buffer
         getline(cin, nameToSearch);
 
         bool found = false;
-        for (int i = 0; i < numStudents; i++) {
-            if (mhs[i].name == nameToSearch) {
-                cout << "Data for student '" << nameToSearch << "':" << endl;
-                cout << "Name: " << mhs[i].name << endl;
-                cout << "Gender: " << mhs[i].gender << endl;
-                cout << "NRP: " << mhs[i].nrp << endl;
-                cout << "Age: " << mhs[i].age << endl;
+        for (int i = 0; i < numMhs; i++) {
+            if (mhsw[i].name == nameToSearch) {
+                cout << "Data mahasiswa '" << nameToSearch << "':" << endl;
+                cout << "Nama: " << mhsw[i].name << endl;
+                cout << "Jenis Kelamin: " << mhsw[i].gender << endl;
+                cout << "NRP: " << mhsw[i].nrp << endl;
+                cout << "Umur: " << mhsw[i].age << endl;
                 found = true;
                 break; // Exit the loop since we found the student
             }
         }
 
         if (!found) {
-            cout << "No student with the name '" << nameToSearch << "' found." << endl;
+            cout << "Mahasiswa dengan nama '" << nameToSearch << "' tidak ditemukan." << endl;
         }
     } else {
-        cout << "No students to search." << endl;
+        cout << "Tidak ada mahasiswa yang dapat dicari." << endl;
     }
 }
 
@@ -146,18 +144,18 @@ void searchMahasiswa(const Mahasiswa mhs[], int numStudents)
 int main()
 {
     const int maxSize = 10;
-    Mahasiswa mhs[maxSize];
-    int numStudents = 0;
+    MAHASISWA mhsw[maxSize];
+    int numMhs = 0;
 
     while (true) {
         cout << "Options:" << endl;
-        cout << "1: Display data" << endl;
-        cout << "2: Input new data" << endl;
-        cout << "3: Delete data" << endl;
-        cout << "4: Change data" << endl;
-        cout << "5: Search data" << endl;
-        cout << "6: Exit" << endl;
-        cout << "Enter your choice: ";
+        cout << "1: Menampilkan data" << endl;
+        cout << "2: Masukkan data baru" << endl;
+        cout << "3: Hapus data" << endl;
+        cout << "4: Ubah data" << endl;
+        cout << "5: Cari data" << endl;
+        cout << "6: Keluar" << endl;
+        cout << "Masukkan perintah: ";
         
         int choice;
         cin >> choice;
@@ -165,20 +163,20 @@ int main()
         cout << endl;
 
         if (choice == 1) {
-            printMahasiswa(mhs, numStudents);
+            printMahasiswa(mhsw, numMhs);
         } else if (choice == 2) {
-            inputMahasiswa(mhs, numStudents);
+            inputMahasiswa(mhsw, numMhs);
         } else if (choice == 3) {
-            deleteMahasiswa(mhs, numStudents);
+            deleteMahasiswa(mhsw, numMhs);
         } else if (choice == 4) {
-            changeMahasiswa(mhs, numStudents);
+            changeMahasiswa(mhsw, numMhs);
         } else if (choice == 5) {
-            searchMahasiswa(mhs, numStudents);
+            searchMahasiswa(mhsw, numMhs);
         }else if (choice == 6) {
-            cout << "Exiting the program." << endl;
+            cout << "Keluar dari program." << endl;
             break; // Keluar dari loop while dan program selesai
         } else {
-            cout << "Invalid choice. Please select a valid option." << endl;
+            cout << "Perintah tidak ditemukan. Masukkan perintah yang tersedia." << endl;
         }
 
     }
