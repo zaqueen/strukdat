@@ -11,7 +11,7 @@ typedef struct
     int age;
 } MAHASISWA;
 
-
+//masukkan data
 void inputMahasiswa(MAHASISWA mhsw[], int &numMhs) 
 {
     if (numMhs < 10) {
@@ -30,7 +30,7 @@ void inputMahasiswa(MAHASISWA mhsw[], int &numMhs)
     }
 }
 
-
+//menampilkan data
 void printMahasiswa(const MAHASISWA mhsw[], int numMhs)     
 {
     for (int i = 0; i < numMhs; i++) {
@@ -43,7 +43,7 @@ void printMahasiswa(const MAHASISWA mhsw[], int numMhs)
     }
 }
 
-
+//menghapus data
 void deleteMahasiswa(MAHASISWA mhsw[], int &numMhs)
 {
     if (numMhs > 0) {
@@ -75,6 +75,7 @@ void deleteMahasiswa(MAHASISWA mhsw[], int &numMhs)
     }
 }
 
+//mengubah data
 // Function to change data for a student by name
 void changeMahasiswa(MAHASISWA mhsw[], int numMhs)
 {
@@ -110,6 +111,7 @@ void changeMahasiswa(MAHASISWA mhsw[], int numMhs)
     }
 }
 
+//mencari data
 void searchMahasiswa(const MAHASISWA mhsw[], int numMhs)
 {
     if (numMhs > 0) {
