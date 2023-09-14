@@ -30,7 +30,7 @@ void inputMahasiswa(MAHASISWA mhsw[], int &numMhs)
     }
 }
 
-//1. DISPLAY DATA
+
 void printMahasiswa(const MAHASISWA mhsw[], int numMhs)     
 {
     for (int i = 0; i < numMhs; i++) {
